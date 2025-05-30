@@ -1,4 +1,4 @@
-var img, x, y;
+var img;
 
 function preload() {
 
@@ -7,13 +7,11 @@ img = loadImage("sunflower.jpg");
 }
 
 
-function setup() {
+function setup () {
 
 createCanvas (400, 400);
 
 background(0);
-
-noStroke();
 
 }
 
@@ -22,17 +20,11 @@ function draw() {
 
 background(0);
 
-x = mouseX;
+image(img, 0, 0);  
 
-y = mouseY;
+var v = map(mouseX, 0, width, 2, 20);
 
-image( img, 0, 0);
-
-var c = get(x, y); 
-
-fill(c); //
-
-ellipse (x, y, 100, 100);  
-
+filter(POSTERIZE, v); 
 
 }
+
